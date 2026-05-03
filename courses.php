@@ -7,17 +7,19 @@ $filters = [];
 foreach ($_GET as $key => $value) {
     switch ($key) {
         case 'category':
+            if ($value == '') break;
             $filters['category'] = $value;
             break;
         case 'min_price':
         case 'max_price':
+            if ($value == '') break;
             if (is_numeric($value)){
                 $filters[$key] = (float)$value;
             } else {
                 http_response_code(400);
                 $ans = [
                     "error" => "Invalid parameter type",
-                    "description" => $key . " must be a number"
+                    "description" => $key . " must be a number, value is '" . $value ."'"
                 ];
                 echo json_encode($ans);
                 return;
