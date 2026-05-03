@@ -8,7 +8,7 @@ foreach ($_GET as $key => $value) {
     switch ($key) {
         case 'category':
             if (trim($value) == '') break;
-            $filters['category'] = $value;
+            $filters['category'] = trim($value);
             break;
         case 'min_price':
         case 'max_price':
