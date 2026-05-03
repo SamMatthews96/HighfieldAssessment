@@ -1,26 +1,26 @@
 [
   {
-    "ID": 1,
-    "Name": "Health & Safety",
-    "Price": 99,
-    "Category": "safety"
+    "id": 1,
+    "name": "Health & Safety",
+    "price": 99,
+    "category": "safety"
   },
   {
-    "ID": 2,
-    "Name": "Food Safety",
-    "Price": 59,
-    "Category": "safety"
+    "id": 2,
+    "name": "Food Safety",
+    "price": 59,
+    "category": "safety"
   },
   {
-    "ID": 3,
-    "Name": "Safeguarding",
-    "Price": 20,
-    "Category": "training"
+    "id": 3,
+    "name": "Safeguarding",
+    "price": 20,
+    "category": "training"
   },
   {
-    "ID": 4,
-    "Name": "ACT",
-    "Price": 50,
-    "Category": "training"
+    "id": 4,
+    "name": "ACT",
+    "price": 50,
+    "category": "training"
   }
 ]

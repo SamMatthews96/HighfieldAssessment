@@ -1,13 +1,8 @@
 <?php
 
 $string = file_get_contents("courses.json");
-$json = json_decode($string, true);
+$coursesJson = json_decode($string, true);
 
-$ans = json_encode($json);
-
-// validate _GET
-// check _GET for category, min_price, max_price
-//var_dump($_GET);
 $filters = [];
 foreach ($_GET as $key => $value) {
     switch ($key) {
@@ -39,4 +34,18 @@ foreach ($_GET as $key => $value) {
     }
 }
 
-echo $ans;
+$response = [];
+foreach ($coursesJson as $course) {
+    if (isset($filters['category']) && $course['category'] != $filters['category']) {
+        continue;
+    }
+    if (isset($filters['min_price']) && $course['price'] < $filters['min_price']) {
+        continue;
+    }
+    if (isset($filters['max_price']) && $course['price'] > $filters['max_price']) {
+        continue;
+    }
+    $response[] = $course;
+}
+echo json_encode($response);
+
