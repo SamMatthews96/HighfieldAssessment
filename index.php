@@ -1,5 +1,6 @@
 ﻿<html lang="">
 <body>
+<h3>Search Courses:</h3>
 <form action="courses.php" method="get">
     <label for="category">Category:</label>
     <input type="text" name="category"><br>
@@ -7,7 +8,7 @@
     <input type="number" name="min_price"><br>
     <label for="max_price">Max Price:</label>
     <input type="number" name="max_price"><br>
-    <button type="submit">Submit</button>
+    <button type="submit">Search</button>
 </form>
 </body>
 
