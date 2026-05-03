@@ -1,11 +1,11 @@
 ﻿This is my submission for the Highfield technical assessment.
 
-This project consists of a web app that features a form, where a user can enter 
-category, min_price and max_price. Upon submit, the page redirects to a page that 
+This project consists of a form, where a user can enter a
+category, min_price and max_price. Upon submission, the page redirects to a page that 
 displays the results of the search as json.
 
-I ran the script with the command "php -S localhost:80".
-The form is viewable at http://localhost:80/index.php.
+I ran the app with the command "php -S localhost:80".
+The form is then viewable at http://localhost:80/.
 The script to filter the courses is at http://localhost:80/courses.php.
 
 Accepted parameters are:
@@ -13,7 +13,7 @@ Accepted parameters are:
 * min_price: numeric
 * max_price: numeric
 
-Any unexcepted parameters will return an error message.
+Any unexpected parameters will return an error message.
 Any parameters of the wrong type will return an error message.
 
 Example usage:
@@ -34,4 +34,4 @@ be necessary.
 
 Assumptions
 * The dataset is small and static, hence a json file is an acceptable format.
-* The response can be displayed on a separate page.
+* The response doesn't need to be displayed on the same page.
