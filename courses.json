@@ -1,0 +1,26 @@
+[
+  {
+    "ID": 1,
+    "Name": "Health & Safety",
+    "Price(£)": 99,
+    "Category": "safety"
+  },
+  {
+    "ID": 2,
+    "Name": "Food Safety",
+    "Price(£)": 59,
+    "Category": "safety"
+  },
+  {
+    "ID": 3,
+    "Name": "Safeguarding",
+    "Price(£)": 20,
+    "Category": "training"
+  },
+  {
+    "ID": 4,
+    "Name": "ACT",
+    "Price(£)": 50,
+    "Category": "training"
+  }
+]
