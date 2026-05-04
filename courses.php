@@ -32,18 +32,26 @@ function parseAndValidateQueryParams(array &$errors): array {
     return $filters;
 }
 
-function readCoursesFile(): array {
-    $file = file_get_contents("courses.json");
+function readCoursesFile(array &$errors): array {
+    if (file_exists("courses.json")) {
+        $file = file_get_contents("courses.json");
+    } else {
+        $file = false;
+    }
     if ($file === false) {
-        http_response_code(500);
-        echo json_encode(["error_type" => "Internal server error", "error_description" => "Failed to read courses.json"]);
-        exit;
+        $errors[] = [
+            "error_type" => "Internal server error",
+            "error_description" => "Failed to read courses.json"
+        ];
+        return [];
     }
     $coursesJson = json_decode($file, true);
-    if ($coursesJson === null) {
-        http_response_code(500);
-        echo json_encode(["error_type" => "Internal server error", "error_description" => "Failed to parse courses.json"]);
-        exit;
+    if (gettype($coursesJson) !== 'array') {
+        $errors[] = [
+            "error_type" => "Internal server error",
+            "error_description" => "Failed to parse courses.json"
+        ];
+        return [];
     }
     return $coursesJson;
 }
@@ -73,7 +81,13 @@ if (count($errors) > 0) {
     exit;
 }
 
-$courses = readCoursesFile();
+$errors = [];
+$courses = readCoursesFile($errors);
+if (count($errors) > 0) {
+    http_response_code(500);
+    echo json_encode($errors);
+    exit;
+}
 $filteredCourses = getFilteredCourses($courses, $filters);
 
 echo json_encode($filteredCourses);
