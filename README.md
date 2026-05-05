@@ -19,6 +19,10 @@ Any parameters of the wrong type will return an error message.
 Example usage:
 /courses.php?category=safety&min_price=30&max_price=100
 
+Initially I wrote the solution as a functionless, procedural script to
+maximise locality of behaviour. However, I changed to a functional approach
+because I felt this would better communicate intent, and be more clean and readable.
+
 What I'd do with more time
 * Generally speaking, in a real-life situation, I'd ask questions to better understand
 the context, to understand exactly what problem I'm trying to solve.
@@ -35,3 +39,6 @@ be necessary.
 Assumptions
 * The dataset is small and static, hence a json file is an acceptable format.
 * The response doesn't need to be displayed on the same page.
+* I interpreted "Handle missing or invalid query parameters gracefully" to mean clear 
+error messages should be shown for unexpected parameters, as this makes behaviour 
+more predictable and easy to reason about.
